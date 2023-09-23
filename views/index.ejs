@@ -14,7 +14,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% players.forEach((player, index) => { %>
                         <tr>
                             <th scope="row"><%= player.id %></th>
                             <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt=""></td>
@@ -28,7 +27,6 @@
                                 <a href="player/delete/<%= player.id %>" class="btn btn-sm btn-danger">Delete</a>
                             </td>
                         </tr>
-                    <% }) %>
                 </tbody>
             </table>
     </div>
