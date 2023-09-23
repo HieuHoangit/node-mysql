@@ -15,10 +15,11 @@ const PORT = process.env.PORT || 2000;
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'bhuzhqwszdemuzdofxnq'
+    MYSQL_ADDON_HOST=bhuzhqwszdemuzdofxnq-mysql.services.clever-cloud.com
+MYSQL_ADDON_DB=bhuzhqwszdemuzdofxnq
+MYSQL_ADDON_USER=umqqhidjit7jawem
+MYSQL_ADDON_PASSWORD=WuZ1mKfaaMUERxKE7y6n
+MYSQL_ADDON_URI=mysql://umqqhidjit7jawem:WuZ1mKfaaMUERxKE7y6n@bhuzhqwszdemuzdofxnq-mysql.services.clever-cloud.com:3306/bhuzhqwszdemuzdofxnq
 });
 
 // connect to database
