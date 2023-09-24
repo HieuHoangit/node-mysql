@@ -10,7 +10,7 @@
 </head>
 <style>
     .table-wrapper {
-        margin-top: 50px;
+
     }
 
     .player-img {
@@ -21,10 +21,44 @@
     .add-player-form {
         margin-top: 50px;
     }
+    .header-body {
+    padding: 20px 0 0px;
+    
+    }
+    .pull-left {
+    margin-top: 0%;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+#logo img {
+    margin-bottom: 13px;
+}
+.table .thead-dark th {
+    color: #fff;
+    background-color: black !important;
+    border-color: #32383e;
+}
+.header-bottom {
+    background: black !important;
+    width: 100%;
+    z-index: 10;
+    border-bottom: 1 px solid rgba(216, 216, 216);
+    padding-left: 20px;
+}
+
+
+
 </style>
 <body>
 <div class="page-wrapper">
     <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1"><a href="/">Socka Players</a></span>
+        <div class="pull-left">
+            <a href="{{route('trangchu')}}" id="logo"><img src="https://scontent.fdad1-4.fna.fbcdn.net/v/t39.30808-6/382697679_1961593480966564_7564006666539532554_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=49d041&_nc_ohc=HurdafsoOAcAX9H8C7Y&_nc_ht=scontent.fdad1-4.fna&oh=00_AfC0SbB1RnCYV5U9whVuB39BpNzO-TLVzK3vMukWjyELAg&oe=6514D9F0" width="200px" alt=""></a>
+        </div>
         <a class="float-right" href="/player/add" title="Add a New Player">Add a Player</a>
     </nav>
+</div>
+
+        
+        
