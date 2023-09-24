@@ -15,11 +15,10 @@ const PORT = process.env.PORT || 2000;
 // create connection to database
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
-    MYSQL_ADDON_HOST=bhuzhqwszdemuzdofxnq-mysql.services.clever-cloud.com
-MYSQL_ADDON_DB=bhuzhqwszdemuzdofxnq
-MYSQL_ADDON_USER=umqqhidjit7jawem
-MYSQL_ADDON_PASSWORD=WuZ1mKfaaMUERxKE7y6n
-MYSQL_ADDON_URI=mysql://umqqhidjit7jawem:WuZ1mKfaaMUERxKE7y6n@bhuzhqwszdemuzdofxnq-mysql.services.clever-cloud.com:3306/bhuzhqwszdemuzdofxnq
+    DB_HOST: 'localhost',
+    DB_USERNAME: 'root',
+    DB_PASSWORD: '',
+    DB_DBNAME: 'socka'//umqqhidjit7jawem:WuZ1mKfaaMUERxKE7y6n@bhuzhqwszdemuzdofxnq-mysql.services.clever-cloud.com:3306/bhuzhqwszdemuzdofxnq
 });
 
 // connect to database
@@ -55,48 +54,3 @@ app.get('*', function(req, res, next){
 app.listen(PORT, () => {
     console.log(`Server running on port: ${PORT}`);
 });
-
-const html = `
-<!DOCTYPE html>
-<% include partials/header.ejs %>
-    <div class="table-wrapper">
-        <% if (players.length > 0) { %>
-            <table class="table table-hovered">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">First Name</th>
-                        <th scope="col">Last Name</th>
-                        <th scope="col">Position</th>
-                        <th scope="col">Number</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% players.forEach((player, index) => { %>
-                        <tr>
-                            <th scope="row"><%= player.id %></th>
-                            <td><img src="/assets/img/<%= player.image %>" class="rounded-circle player-img" alt=""></td>
-                            <td><%= player.first_name %></td>
-                            <td><%= player.last_name %></td>
-                            <td><%= player.position %></td>
-                            <td><%= player.number %></td>
-                            <td>@<%= player.user_name %></td>
-                            <td>
-                                <a href="player/edit/<%= player.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-success">Edit</a>
-                                <a href="player/delete/<%= player.id %>" class="btn btn-sm btn-danger">Delete</a>
-                            </td>
-                        </tr>
-                    <% }) %>
-                </tbody>
-            </table>
-        <% } else { %>
-            <p class="text-center">No players found. Go <a href="/player/add" >here</a> to add players.</p>
-        <% } %>
-    </div>
-</div>
-</body>
-</html>
-`
