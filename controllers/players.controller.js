@@ -2,7 +2,7 @@ const fs = require('fs');
 
 exports.addPlayerPage = (req, res) => {
     res.render('add-player.ejs', {
-        title: "Welcome to Socka | Add a new player",
+        title: "Fall Shop | View Position",
         message: ''
     });
 };
@@ -35,7 +35,7 @@ exports.addPlayer = (req, res) => {
             message = 'Username already exists';
             res.render('add-player.ejs', {
                 message,
-                title: "Welcome to Socka | Add a new player"
+                title: "Fall Shop | View Position"
             });
         } else {
             // check the filetype before uploading it
