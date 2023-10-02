@@ -18,10 +18,7 @@ exports.addPlayer = (req, res) => {
     let position = req.body.position;
     let number = req.body.number;
     let username = req.body.username;
-    let uploadedFile = req.files.image;
-    let image_name = uploadedFile.name;
-    let fileExtension = uploadedFile.mimetype.split('/')[1];
-    image_name = username + '.' + fileExtension;
+    let image_name = req.body.image;
 
     let usernameQuery = "SELECT * FROM `players` WHERE user_name = '" + username + "'";
 
