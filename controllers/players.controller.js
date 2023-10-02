@@ -102,5 +102,24 @@ exports.deletePlayer = (req, res) => {
     let getImageQuery = 'SELECT image from `players` WHERE id = "' + playerId + '"';
     let deleteUserQuery = 'DELETE FROM players WHERE id = "' + playerId + '"';
 
+    db.query(getImageQuery, (err, result) => {
+        if (err) {
+            return res.status(500).send(err);
+        }
+
+        let image = result[0].image;
+
+        fs.unlink(`${image}`, (err) => {
+            if (err) {
+                return res.status(500).send(err);
+            }
+            db.query(deleteUserQuery, (err, result) => {
+                if (err) {
+                    return res.status(500).send(err);
+                }
+                res.redirect('/');
+            });
+        });
+    });
     
 }
