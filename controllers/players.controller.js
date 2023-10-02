@@ -37,32 +37,7 @@ exports.addPlayer = (req, res) => {
                 message,
                 title: "Fall Shop | View Position"
             });
-        } else {
-            // check the filetype before uploading it
-            if (uploadedFile.mimetype === 'image/png' || uploadedFile.mimetype === 'image/jpeg' || uploadedFile.mimetype === 'image/gif') {
-                // upload the file to the /public/assets/img directory
-                uploadedFile.mv(`public/assets/img/${image_name}`, (err ) => {
-                    if (err) {
-                        return res.status(500).send(err);
-                    }
-                    // send the player's details to the database
-                    let query = "INSERT INTO `players` (first_name, last_name, position, number, image, user_name) VALUES ('" +
-                        first_name + "', '" + last_name + "', '" + position + "', '" + number + "', '" + image_name + "', '" + username + "')";
-                    db.query(query, (err, result) => {
-                        if (err) {
-                            return res.status(500).send(err);
-                        }
-                        res.redirect('/');
-                    });
-                });
-            } else {
-                message = "Invalid File format. Only 'gif', 'jpeg' and 'png' images are allowed.";
-                res.render('add-player.ejs', {
-                    message,
-                    title: "Fall Shop | View Position"
-                });
-            }
-        }
+        } 
     });
 }
 
