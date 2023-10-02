@@ -109,14 +109,14 @@ exports.deletePlayer = (req, res) => {
 
         let image = result[0].image;
 
-        
+            if (err) {
+                return res.status(500).send(err);
+            }
             db.query(deleteUserQuery, (err, result) => {
                 if (err) {
                     return res.status(500).send(err);
                 }
                 res.redirect('/');
             });
-        
     });
-    
 }
